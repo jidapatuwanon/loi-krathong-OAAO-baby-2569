@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลอยกระทงออนไลน์ 2569 | OAAObaby</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+
+*{box-sizing:border-box}
+body{
+ margin:0;font-family:'Prompt',sans-serif;color:#fff;
+ background:linear-gradient(180deg,#171b43,#39345f 48%,#172e4b);
+ min-height:100vh;overflow-x:hidden;
+}
+header{text-align:center;padding:30px 15px 10px}
+.logo{font-size:14px;letter-spacing:3px;color:#f8d99c}
+h1{font-size:clamp(27px,6vw,45px);margin:10px 0;color:#ffe4a9}
+.subtitle{color:#eee0ee;font-size:14px}
+.scene{
+ position:relative;min-height:390px;overflow:hidden;
+ margin:20px auto;max-width:1000px;
+ border-radius:25px;
+ background:linear-gradient(#292a59,#56517b 60%,#183b56);
+ border:1px solid #ffffff30;
+}
+.moon{
+ position:absolute;right:12%;top:35px;width:90px;height:90px;
+ border-radius:50%;background:#fff0c9;
+ box-shadow:0 0 45px #ffe6a0;
+}
+.stars{position:absolute;inset:0;
+ background-image:radial-gradient(#fff 1px,transparent 1px);
+ background-size:55px 55px;opacity:.6}
+.hill{position:absolute;bottom:130px;width:100%;height:100px;
+ background:#242c4e;clip-path:polygon(0 70%,15% 35%,30% 65%,50% 20%,70% 70%,85% 30%,100% 65%,100% 100%,0 100%)}
+.river{
+ position:absolute;bottom:0;width:100%;height:155px;
+ background:linear-gradient(180deg,#24546d,#102e4a);
+ border-top:2px solid #ffffff25;
+}
+.river:after{
+ content:"";position:absolute;inset:0;
+ background:repeating-linear-gradient(175deg,transparent 0 18px,#ffffff13 19px 20px);
+}
+.reflection{
+ position:absolute;right:14%;top:0;width:75px;height:150px;
+ background:linear-gradient(180deg,#ffe8a3aa,transparent);
+ filter:blur(15px);
+}
+.scene-message{
+ position:absolute;top:35%;width:100%;text-align:center;
+ color:#ffe8ba;font-size:14px;letter-spacing:1px;
+}
+.content{max-width:760px;margin:auto;padding:10px 18px 50px}
+.panel{
+ background:#ffffff12;border:1px solid #ffffff35;
+ border-radius:20px;padding:22px;margin:20px 0;
+ backdrop-filter:blur(8px);
+}
+h2{font-size:19px;color:#ffe3aa;margin:0 0 15px}
+.krathongs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.choice{
+ border:1px solid #ffffff45;background:#ffffff0c;
+ border-radius:15px;padding:16px 8px;color:white;
+ font-family:inherit;cursor:pointer;text-align:center;
+ transition:.2s;
+}
+.choice .emoji{font-size:43px;display:block;margin-bottom:7px}
+.choice.selected{border:2px solid #ffdb8a;background:#ffdc8a22}
+.choice:focus-visible,button:focus-visible{outline:3px solid white}
+label{display:block;margin:13px 0 7px;font-size:14px}
+input,textarea{
+ width:100%;padding:13px;border-radius:10px;
+ border:1px solid #ffffff60;background:#ffffff16;
+ color:white;font-family:inherit;font-size:15px;
+}
+input::placeholder,textarea::placeholder{color:#ded8e5}
+textarea{min-height:85px;resize:vertical}
+.main-btn{
+ display:block;width:100%;padding:14px;border:0;
+ border-radius:30px;background:linear-gradient(90deg,#e9bd72,#ffe8b1);
+ color:#47334a;font-family:inherit;font-size:17px;
+ font-weight:600;cursor:pointer;margin-top:20px;
+ box-shadow:0 5px 20px #0003;
+}
+.main-btn:hover{filter:brightness(1.08)}
+#floating{
+ position:absolute;bottom:65px;left:-100px;
+ font-size:65px;z-index:5;display:none;
+ animation:floataway 12s linear forwards;
+ filter:drop-shadow(0 0 12px #ffd981);
+ white-space:nowrap;
+}
+@keyframes floataway{
+ 0%{left:-100px;transform:translateY(0) rotate(-4deg)}
+ 30%{transform:translateY(-17px) rotate(4deg)}
+ 60%{transform:translateY(10px) rotate(-3deg)}
+ 100%{left:110%;transform:translateY(-8px) rotate(3deg)}
+}
+.result{text-align:center;padding:18px 5px}
+.result h2{font-size:23px}
+.result p{line-height:1.9;color:#ffebc9}
+.hidden{display:none!important}
+footer{text-align:center;padding:15px;color:#e6d8e7;font-size:12px}
+@media(max-width:480px){
+ .scene{min-height:340px;margin:15px 10px}
+ .moon{width:70px;height:70px}
+ .panel{padding:17px}
+ .krathongs{gap:9px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">OAAOBABY PRESENTS</div>
+ <h1>ลอยกระทงออนไลน์ 2569</h1>
+ <div class="subtitle">ลอยความทุกข์ ส่งความสุขให้ทุกครอบครัว 🤍</div>
+</header>
+
+<div class="scene" id="scene">
+ <div class="stars"></div>
+ <div class="moon"></div>
+ <div class="reflection"></div>
+ <div class="hill"></div>
+ <div class="scene-message" id="sceneMessage">
+  ✨ คืนวันเพ็ญ เดือนสิบสอง ✨<br>
+  มาร่วมลอยกระทงและส่งคำอธิษฐานดี ๆ ไปด้วยกัน
+ </div>
+ <div class="river"></div>
+ <div id="floating">🪷</div>
+</div>
+
+<main class="content">
+ <section class="panel" id="formPanel">
+  <h2>🪷 1. เลือกกระทงที่คุณชื่นชอบ</h2>
+  <div class="krathongs">
+   <button class="choice selected" data-icon="🪷">
+    <span class="emoji">🪷</span>กระทงดอกบัว
+   </button>
+   <button class="choice" data-icon="🌸">
+    <span class="emoji">🌸</span>กระทงดอกไม้
+   </button>
+   <button class="choice" data-icon="🌼">
+    <span class="emoji">🌼</span>กระทงสีสันสดใส
+   </button>
+   <button class="choice" data-icon="🪴">
+    <span class="emoji">🪴</span>กระทงธรรมชาติ
+   </button>
+  </div>
+
+  <h2 style="margin-top:25px">🕯️ 2. เขียนคำอธิษฐาน</h2>
+  <label for="name">ชื่อของคุณ (ไม่บังคับ)</label>
+  <input id="name" maxlength="30" placeholder="กรอกชื่อของคุณ">
+
+  <label for="wish">คำอธิษฐานในคืนวันลอยกระทง</label>
+  <textarea id="wish" maxlength="200" placeholder="ขอให้ปีนี้มีแต่เรื่องดี ๆ..."></textarea>
+
+  <button class="main-btn" id="floatBtn">🕯️ ลอยกระทงของฉัน</button>
+ </section>
+
+ <section class="panel result hidden" id="result">
+  <div style="font-size:60px">✨🪷✨</div>
+  <h2>กระทงของคุณลอยออกไปแล้ว!</h2>
+  <p id="greeting"></p>
+  <p id="wishResult"></p>
+  <p>ขอให้ทุกความทุกข์ลอยไปกับสายน้ำ<br>
+  และขอให้มีแต่ความสุขเข้ามาในชีวิตนะคะ 🤍</p>
+  <button class="main-btn" id="againBtn">🌸 ลอยกระทงอีกครั้ง</button>
+ </section>
+</main>
+
+<footer>
+ ด้วยความปรารถนาดีจาก OAAObaby 🤍<br>
+ ขอให้ทุกครอบครัวมีความสุขในวันลอยกระทง
+</footer>
+
+<script>
+let selectedIcon="🪷";
+
+document.querySelectorAll(".choice").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".choice").forEach(b=>b.classList.remove("selected"));
+  button.classList.add("selected");
+  selectedIcon=button.dataset.icon;
+ });
+});
+
+document.getElementById("floatBtn").addEventListener("click",()=>{
+ const name=document.getElementById("name").value.trim();
+ const wish=document.getElementById("wish").value.trim();
+
+ if(!wish){
+  alert("อย่าลืมเขียนคำอธิษฐานก่อนลอยกระทงนะคะ 🕯️");
+  return;
+ }
+
+ const floating=document.getElementById("floating");
+ floating.style.display="block";
+ floating.style.animation="none";
+ floating.offsetHeight;
+ floating.textContent=selectedIcon+" 🕯️";
+ floating.style.animation="floataway 12s linear forwards";
+
+ document.getElementById("greeting").textContent=
+  name ? "ขอส่งความสุขให้คุณ "+name+" นะคะ" : "ขอส่งความสุขให้คุณนะคะ";
+ document.getElementById("wishResult").textContent=
+  "คำอธิษฐานของคุณ: "+wish;
+
+ document.getElementById("formPanel").classList.add("hidden");
+ document.getElementById("result").classList.remove("hidden");
+ document.getElementById("sceneMessage").textContent=
+  "ขอให้คำอธิษฐานดี ๆ ของคุณเป็นจริง ✨";
+ document.getElementById("scene").scrollIntoView({behavior:"smooth"});
+});
+
+document.getElementById("againBtn").addEventListener("click",()=>{
+ document.getElementById("formPanel").classList.remove("hidden");
+ document.getElementById("result").classList.add("hidden");
+ document.getElementById("floating").style.display="none";
+ document.getElementById("wish").value="";
+ document.getElementById("name").value="";
+ document.getElementById("sceneMessage").innerHTML=
+  "✨ คืนวันเพ็ญ เดือนสิบสอง ✨<br>มาร่วมลอยกระทงและส่งคำอธิษฐานดี ๆ ไปด้วยกัน";
+ document.getElementById("scene").scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
+</html>
